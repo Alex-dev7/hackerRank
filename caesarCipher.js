@@ -9,15 +9,14 @@ function caesarCipher(s, k) {
     let enc = ''
 
     for(let i = 0; i < string.length  ; i++){
-        if(string[i] === '-') { enc += `-`}
-        for(let j = 0; j < alphabet.length ; j++){
-            
+        if(!alphabet.includes(string[i].toLowerCase())) { enc += `${string[i]}`}
+        for(let j = 0; j < alphabet.length ; j++){ 
             if(string[i] === alphabet[j].toUpperCase()){
                 enc += `${alphabet[(j + k) % 26].toUpperCase()}`
             } 
             if(string[i] === alphabet[j]){
                     enc += `${alphabet[(j + k) % 26]}` 
-            }
+            }  
         } 
     }
     return enc
