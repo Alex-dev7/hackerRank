@@ -10,21 +10,9 @@
 
 function towerBreakers(n, m) {
     // Write your code here
-    let P1 = 0
-    let P2 = 0
-    let toggle = true
-    let tower = m
-    
-  
-    for(let i = 0; i <= n; i++ ){
-        for(let j = 0; j <= m; j++){
-            if(toggle){
-                if(m % 2 === 0) {
-                    
-                }
-            }    
-        }
-    }
-    
+    if(m === 1) { return 2}
+    if(n % 2 === 0) { return 2 }
+    return 1
     
 }
+
