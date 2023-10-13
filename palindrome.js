@@ -1,26 +1,44 @@
-function palindrome(s) {
-    // console.log(s.slice(2, s.length))
+function isPalindrome(s){
+    let left = 0
+    let right = s.length - 1
 
-    if(s.split('').reverse().join('') === s) {return -1}
-
-    // Removing the first character
-    if(s.slice(1) === s.split('').reverse().join('').slice(0, s.length - 1)) {
-        return 0
-    }
-
-    // Removing the last character
-    if(s.slice(0, s.length - 1) === s.split('').reverse().join('').slice(1)) {
-        return s.length
-    }
-
-    for(let i = 0; i < s.length; i++) {
-        if(s.slice(0, s.length - 1) === s.split('').reverse().join('').slice(1)) {
-            return s.length
+    while(left < right){
+        if(s[left] !== s[right]){
+            return false
         }
+        left++
+        right--
     }
 
+    return true
+}
+
+
+
+function palindromeIndex(s) {
+// two pointers
+let left  = 0
+let right = s.length - 1
+
+    while(left <  right){
+
+        if(s[left] !== s[right]){
+
+            // found error, now find which side has the error
+            if(isPalindrome(s.slice(left + 1, right + 1))) return left
+            else if(isPalindrome(s.slice(left, right))) return right
+            return -1
+        }
+
+        left++
+        right--
+    }
     return -1
     
 }
 
-console.log(palindrome('brta'))
+console.log(palindromeIndex('bsyhvwfuesumsehmytqioswvpcbxyolapfywdxeacyuruybhbwxjmrrmjxwbhbyuruycaexdwyfpaloyxbcpwsoiqtymhesmuseufwvhysb'))
+
+
+
+
